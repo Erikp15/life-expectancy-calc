@@ -2,35 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('Uber pickups in NYC')
+years_to_live=[75.97,75.45,74.48,73.50,72.52,71.53,70.54,69.55,68.56,67.57,66.57,65.58,64.59,63.60,62.61,61.63,60.66,59.70,58.74,57.79,56.85,55.91,54.98,54.06,53.16,52.22,51.31,50.39,49.48,48.56,47.65,46.74,45.83,44.92,44.01,43.10,42.19,41.28,40.37,39.47,38.56,37.65,36.75,35.85]
 
-DATE_COLUMN = 'date/time'
-DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
-            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+age=st.number_input(
+    min_value=0,
+    max_value=119
+)
 
-@st.cache
-def load_data(nrows):
-    data = pd.read_csv(DATA_URL, nrows=nrows)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
-    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
-    return data
+'youre age is:',age
 
-data_load_state = st.text('Loading data...')
-data = load_data(10000)
-data_load_state.text("Done! (using st.cache)")
-
-if st.checkbox('Show raw data'):
-    st.subheader('Raw data')
-    st.write(data)
-
-st.subheader('Number of pickups by hour')
-hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
-st.bar_chart(hist_values)
-
-# Some number in the range 0-23
-hour_to_filter = st.slider('hour', 0, 23, 17)
-filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
-
-st.subheader('Map of all pickups at %s:00' % hour_to_filter)
-st.map(filtered_data)
+'youre life expectancy is:',years_to_live[age]
