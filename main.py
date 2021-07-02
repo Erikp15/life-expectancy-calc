@@ -11,12 +11,21 @@ df=pd.DataFrame(
 )
 st.dataframe(df)
 
+curr_year=st.number_input(
+    'input the current year',
+    min_value=1900,
+    max_value=2095
+)
 age=st.number_input(
     'input youre age',
     min_value=0,
     max_value=119
 )
 
+'the current year is:',curr_year
+
 'youre age is:',age
 
-'youre life expectancy is:',years_to_live[age]
+for i in range(1,len(df.index)):
+    if (df.columns[0]==curr_year and df.columns[1]==age):
+        'youre life expectancy is:',df.columns[7]
