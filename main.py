@@ -29,7 +29,7 @@ age=st.number_input(
 life_expectancy=0
 
 for i in range(1,len(df.index)):
-    if (df.columns[0]==curr_year and df.columns[1]==age):
-        life_expectancy=df.columns[7]
+    if (df[i].columns[0]==curr_year and df[i].columns[1]==age):
+        life_expectancy=df[i].columns[7]
 
 "you're life expectancy is:",life_expectancy
