@@ -1,7 +1,3 @@
-United States life table functions and actuarial functions at 2.7 percent interest
-based on the historical mortality probabilities used in the 2017 Trustees Report.
-Males
-,,,,,,,o,,,,,..,    ..    (12)
 Year,x,q(x),l(x),d(x),L(x),T(x),e(x),D(x),M(x),A(x),N(x),a(x),12a(x)
 1900,0,0.145957,100000,14596,90026,4640591,46.41,100000,39810,0.3981,2289433,22.8943,269.23 
 1900,1,0.038141,85404,3257,83776,4550564,53.28,83159,25598,0.3078,2189433,26.3283,310.44 

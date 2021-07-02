@@ -7,7 +7,7 @@ years_to_live=[75.97,75.45,74.48,73.50,72.52,71.53,70.54,69.55,68.56,67.57,66.57
 male_data=pd.read_csv('m_pre_2015.csv',error_bad_lines=False)
 
 df=pd.DataFrame(
-    male_data,
+    male_data
 )
 st.dataframe(df)
 
